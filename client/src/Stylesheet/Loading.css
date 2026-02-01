@@ -1,0 +1,70 @@
+/* Loading.css */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Spinner Container */
+.loading-spinner {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+/* Outer Ring */
+.loading-spinner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 6px solid rgba(52, 152, 219, 0.2);
+}
+
+/* Inner Rotating Ring */
+.loading-spinner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #3498db;
+  animation: spin 1.2s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  box-shadow: 0 0 12px rgba(52, 152, 219, 0.6);
+}
+
+/* Optional Loading Text */
+.loading-text {
+  margin-top: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #3498db;
+  letter-spacing: 1px;
+  animation: fade 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
